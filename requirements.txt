@@ -1,0 +1,16 @@
+# Core AI and LLM Frameworks
+langchain==0.1.14
+langgraph==0.0.40
+
+# Tavily Search API
+langchain-community==0.0.29
+
+# Groq Cloud API for LLM
+groq==0.5.0
+
+# Memory & State Management
+langgraph-checkpoint-memory==0.1.2
+
+# General Utilities
+python-dotenv==1.0.1  # For environment variables
+tiktoken==0.5.2  # Tokenization
