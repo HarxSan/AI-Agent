@@ -7,25 +7,30 @@ This repository contains a demo AI agent built using Langraph and Tavily, design
 
 ```mermaid
 graph TD;
-    A["User Input"] -->|Message| B["AI Agent"];
-    B -->|Check Memory| C["Memory Storage"];
-    C -->|Retrieve Context| B;
-    B -->|Check Query Type| D{"Use Tavily Search?"};
+    A["User Input"] --> B["AI Agent"];
+    B --> C["Check Memory"];
+    C --> D["Retrieve Context"];
+    D --> B;
+    B --> E{"Use Tavily Search?"};
 
-    D -- "Yes" -->|Fetch Results| E["Tavily Search API"];
-    E -->|Return Search Results| B;
+    E -- Yes --> F["Fetch Results from Tavily"];
+    F --> G["Return Search Results"];
+    G --> B;
     
-    D -- "No" -->|Generate Response| F["LLM / AI Model"];
+    E -- No --> H["Generate Response using LLM"];
+    H --> B;
 
-    B -->|Final Response| G["User"];
+    B --> I["Final Response to User"];
     
     subgraph "External APIs"
-      E
+      F
     end
 
     subgraph "Memory System"
       C
+      D
     end
+
 ```
 
 Features
