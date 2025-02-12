@@ -5,6 +5,29 @@ Overview
 
 This repository contains a demo AI agent built using Langraph and Tavily, designed to enhance conversational AI by improving long-term memory and retrieval. The agent intelligently processes user queries, fetches relevant information using Tavily's search tool, and maintains contextual memory using a memory saver, ensuring personalized and efficient responses.
 
+```mermaid
+graph TD;
+    A[User Input] -->|Message| B[AI Agent];
+    B -->|Check Memory| C[Memory Storage];
+    C -->|Retrieve Context| B;
+    B -->|Check Query Type| D{Use Tavily Search?};
+
+    D -- Yes -->|Fetch Results| E[Tavily Search API];
+    E -->|Return Search Results| B;
+    
+    D -- No -->|Generate Response| F[LLM / AI Model];
+
+    B -->|Final Response| G[User];
+    
+    subgraph External APIs
+      E
+    end
+
+    subgraph Memory System
+      C
+    end
+```
+
 Features
 
 ✅ Intelligent Web Search – Uses Tavily for real-time web data retrieval.
